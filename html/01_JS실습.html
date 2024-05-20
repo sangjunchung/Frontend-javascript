@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>테마 변경하기</title>
+  </head>
+
+  <body>
+    <h1>밝은 테마 / 어두운 테마로 변경하기</h1>
+    <button onclick="밝은모드()">라이트 모드</button>
+    <button onclick="어두운모드()">다크 모드</button>
+    <script>
+        // body 태그는 html 안에서 존재하는 이름일 뿐 script 안에서 존재하는 이름은 아님
+        const body = document.querySelector("body");
+        
+        function 밝은모드(){
+            body.style.backgroundColor = "white";
+            body.style.color = "black";
+        }
+        function 어두운모드(){
+            document.body.style.backgroundColor = "black";
+            document.body.style.color = "white";
+        }
+    </script>
+  </body>
+</html>
