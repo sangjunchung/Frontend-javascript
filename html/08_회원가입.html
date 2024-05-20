@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>회원가입</title>
+    <style>
+      .container {
+        border: 3px solid gray;
+        border-radius: 10px;
+        margin: 20px auto;
+        width: 500px;
+      }
+      table {
+        margin: 20px 20px 0 20px;
+      }
+      td {
+        padding: 20px;
+      }
+      input {
+        width: 250px;
+      }
+      button {
+        border: 3px solid blue;
+        border-radius: 8px;
+        color: blue;
+        background-color: white;
+        font-weight: 900;
+        margin: 10px 0 40px 40px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form>
+      <div class="container">
+        <table>
+          <tr>
+            <td><label>이름 : </label></td>
+            <td>
+              <input id="user_name" type="text" required />
+            </td>
+          </tr>
+          <tr>
+            <td><label>이메일 : </label></td>
+            <td>
+              <input id="user_email" type="email" required />
+            </td>
+          </tr>
+          <tr>
+            <td><label>비밀번호 : </label></td>
+            <td>
+              <input id="user_pw" type="password" required />
+            </td>
+          </tr>
+          <tr>
+            <td><label>비밀번호 확인 : </label></td>
+            <td>
+              <input id="user_pw_confirm" type="password" required/>
+            </td>
+          </tr>
+        </table>
+        <button onclick="일치여부()">일치여부</button>
+        <button onclick="비번여부()">비번여부</button>
+        <button onclick="회원가입()">회원가입</button>
+        <script>
+          const name = document.getElementById("user_name");
+          const email = document.getElementById("user_email");
+          const pw1 = document.getElementById("user_pw");
+          const pw2 = document.getElementById("user_pw_confirm");
+
+          function 일치여부(){
+            if(name.value == "동그라미" && email.value == "one@kh.kh" && pw1.value == "round123"){
+                alert("이름, 이메일, 비밀번호가 일치합니다.");
+            } else {
+                alert("일치하지 않습니다.");
+            }
+          }
+
+          function 비번여부(){
+            if(pw1.value == pw2.value){
+                alert("비밀번호가 일치합니다.");
+            } else {
+                alert("비밀번호가 일치하지 않습니다.");
+            }
+          }
+
+          function 회원가입() {
+            if (pw1.value == pw2.value) {
+              alert("성공적으로 회원가입하셨습니다.");
+            } else {
+              alert("비밀번호가 다릅니다. 다시 입력해주세요.");
+            }
+          }
+        </script>
+      </div>
+    </form>
+  </body>
+</html>
