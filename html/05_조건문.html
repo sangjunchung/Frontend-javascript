@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>조건문</title>
+  </head>
+
+  <body>
+    <form>
+      <h1>조건문</h1>
+      <pre>
+        프로그래밍 코드가 해석되는 순서를 제어하는 제어문의 한 종류로
+        작성된 조건식에 따라 수행되는 코드를 변경하는 구문
+    </pre
+      >
+      <hr />
+
+      <h3>if 문</h3>
+      <pre>
+        <code>
+            if(조건식){
+                조건식이 true일 경우 실행할 코드;
+            }
+        </code>
+        * 조건식 : 결과가 true, false 인 식
+    </pre>
+      <input type="number" id="인풋1" />
+      <button onclick="체크1()">양수인지 검사</button>
+      <script>
+        let num1 = document.getElementById("인풋1");
+
+        function 체크1() {
+          if (num1.value > 0) {
+            alert("양수입니다.");
+          }
+          if (num1.value <= 0) {
+            alert("양수가 아닙니다.");
+          }
+        }
+      </script>
+      <hr />
+
+      <h3>if - else 문</h3>
+      <pre>
+        <code>
+            if(조건식){
+                조건식이 true 인 경우 수행할 코드;
+            } else {
+                조건식이 false 인 경우 수행할 코드;
+            }
+        </code>
+        * else 는 조건식을 작성하는 () 없음
+      </pre>
+
+      <h5>0~100 사이에 랜덤 숫자를 발생시켜서 홀/짝 판별</h5>
+      <button onclick="체크2()">확인하기</button>
+      <script>
+        /*
+        Math.floor() : 내림, 실수를 내림하여 정수로 반환하는 함수
+        Math.ceil() : 올림, 실수를 올림하여 정수로 반환하는 함수
+        Math.round() : 반올림, 실수를 반올림하여 정수로 반환하는 함수
+        */
+        const num2 = Math.floor(Math.random() * 101);
+
+        function 체크2() {
+          if (num2 % 2 == 0) {
+            alert(num2 + "는 짝수입니다.");
+          } else {
+            alert(num2 + "는 홀수입니다.");
+          }
+        }
+      </script>
+
+      <h3>if - else if - else 문</h3>
+      <pre>
+        <code>
+          if (조건식1) {
+            조건식1 이 true 인 경우 발생;
+          } else if (조건식2) {
+            조건식2 가 true 인 경우 발생;
+          } else {
+            조건식1, 2 가 모두 false 인 경우 발생;
+          }
+        </code>
+      </pre>
+
+      <h5>어린이, 청소년, 성인 구분하기</h5>
+      <pre>
+        나이를 입력 받아 0 ~ 13 : 어린이, 14 ~ 19 청소년, 20 ~ 120 : 성인
+      </pre>
+      나이 :
+      <input id="inputAge" type="number" />
+      <button onclick="체크3()">확인하기</button>
+      <script>
+        const 나이감별 = document.getElementById("inputAge");
+        let msg;
+
+        function 체크3() {
+          console.log("키보드로 입력 받은 나이는? " + 나이감별.value);
+          if (나이감별.value <= 0) {
+            msg = "아직 세상에 태어나지 않았습니다.";
+          } else if (나이감별.value > 0 && 나이감별.value <= 13) {
+            msg = "어린이 입니다.";
+          } else if (나이감별.value > 13 && 나이감별.value <= 19) {
+            msg = "청소년 입니다.";
+          } else if (나이감별.value > 19 && 나이감별.value <= 120) {
+            msg = "성인 입니다.";
+          } else {
+            msg = "백골 입니다.";
+          }
+          alert(msg);
+        }
+      </script>
+    </form>
+  </body>
+</html>
