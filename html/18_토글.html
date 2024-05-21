@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>토글(toggle)</title>
+    <style>
+      #토글박스 {
+        width: 200px;
+        height: 200px;
+        background-color: aliceblue;
+        border: 2px solid lightpink;
+        text-align: center;
+        line-height: 200px;
+      }
+      button {
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        margin: 10px;
+        background-color: antiquewhite;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: black;
+        color: white;
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>박스 보이고 숨기기</h1>
+    <div id="토글박스">글자 보이기</div>
+    <button onclick="보이기숨기기()">토글 클릭하기</button>
+
+    <script>
+      function 보이기숨기기() {
+        const box = document.getElementById("토글박스");
+        // 클래스 목록에 hidden 클래스가 있는지 확인
+        if(box.classList.contains("hidden")){
+            box.classList.remove("hidden");
+        } else {
+            box.classList.add("hidden");
+        }
+      }
+    </script>
+  </body>
+</html>
