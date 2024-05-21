@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>점심메뉴 고르기</title>
+    <style>
+        button {
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: yellowgreen;
+        }
+        ul {
+            list-style-type: none;
+        }
+    </style>
+  </head>
+
+  <body>
+    <h2>점심 메뉴 고르기</h2>
+    <div id="menu">
+        <h3>메뉴리스트</h3>
+        <ul id="menu-list">
+            <li>피자</li>
+            <li>햄버거</li>
+            <li>짜장면</li>
+        </ul>
+    </div>
+    <button onclick="menuSelect()">메뉴 선택</button>
+    <button onclick="menuAdd()">메뉴 추가</button>
+    <button onclick="menuRemove()">메뉴 제거</button>
+    <script>
+        function menuSelect(){
+            const menuList = document.getElementById("menu-list");
+            // li 태그를 선택해서 숫자 배열로 만듬
+            const items = document.getElementsByTagName("li");
+            const ranNum = Math.floor(Math.random() * items.length);
+            const itemSel = items[ranNum];
+            
+            alert("오늘의 점심 메뉴는 ? "+ itemSel.innerText);
+        }
+        function menuAdd(){
+            const menuList = document.getElementById("menu-list");
+
+            const newMenu = prompt("새로운 메뉴를 입력해주세요.");
+            if(newMenu && newMenu != null){
+                const newItem = document.createElement("li");
+                newItem.textContent = newMenu;
+                document.getElementById("menu-list").appendChild(newItem);
+            } else {
+                alert("값이 비어있습니다.");
+            }
+        }
+        /*
+        createElement : 태그 생성하기 닫는 태그 표시안해줘도됨
+                        예를 들어 div 태그를 생성하길 원한다면
+                        document.createElement('div'); 작성
+
+        appendChild : 눈에 보이게끔 부모 태그에 새로 만든 자식 태그를 추가
+        */
+        function menuRemove(){
+            const menuList = document.getElementById("menu-list");
+            const liList = menuList.getElementsByTagName("li");
+
+            const newMenu = prompt("제거할 메뉴를 입력해주세요.");
+            if(newMenu && newMenu != null){
+                for(let i=0; i<liList.length; i++){
+                    if(liList[i].innerText == newMenu){
+                        liList[i].remove();
+                        break;
+                    }
+                }
+            } 
+        }
+    </script>
+  </body>
+</html>
