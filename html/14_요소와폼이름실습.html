@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>폼 이름 설문조사</title>
+    <style>
+        #설문결과 {
+            display: none;
+        }
+    </style>
+  </head>
+
+  <body>
+    <h1>설문조사</h1>
+    <form id="폼">
+      <label>이름 : </label>
+      <input type="text" id="이름" name="user_name" required />
+      <br /><br />
+      <label>설문 내용 : </label>
+      <textarea
+        name="user_feedback"
+        id="설문내용"
+        rows="4"
+        cols="20"
+        required
+      ></textarea>
+      <br /><br />
+      <button type="button" onclick="제출하기()">제출</button>
+    </form>
+    
+    <div id="설문결과">
+        <h2>설문조사 결과</h2>
+        <p><strong>이름 : </strong><span id="설문이름"></span></p>
+        <p><strong>설문내용 : </strong><span id="설문내용결과"></span></p>
+    </div>
+    <script>
+        function 제출하기(){
+            const 이름 = document.getElementById("이름").value;
+            const 설문내용 = document.getElementById("설문내용").value;
+
+            document.getElementById("설문이름").textContent = 이름;
+            document.getElementById("설문내용결과").textContent = 설문내용;
+
+            document.getElementById("설문결과").style.display = "block";
+        }
+      </script>
+  </body>
+</html>
