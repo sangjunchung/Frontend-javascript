@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MBTI</title>
+    <style>
+      .선택한옵션들 {
+        display: flex;
+        justify-content: left;
+        margin-top: 10px;
+      }
+      .선택한옵션 {
+        border: 2px solid black;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 0 10px;
+        padding: 10px 20px;
+      }
+      .선택한옵션:hover {
+        background-color: #333;
+        color: white;
+      }
+      .다른문제 {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>성격 유형 테스트</h1>
+    <div class="문제">
+      <p>각 질문에 대해 솔직하게 적절한 답변을 선택하세요.</p>
+      <div id="문제1">
+        <p>1. 새로운 사람들과 만날 때, 당신은 어떻게 접근하나요?</p>
+        <div class="선택한옵션들">
+          <div class="선택한옵션" onclick="옵션선택('E')">
+            활발하게 접근한다.
+          </div>
+          <div class="선택한옵션" onclick="옵션선택('I')">
+            조용하게 관찰한다.
+          </div>
+        </div>
+      </div>
+      <div id="문제2" class="다른문제">
+        <p>2. 주어진 일에 대해, 당신은 어떤 모습을 보이나요?</p>
+        <div class="선택한옵션들">
+          <div class="선택한옵션" onclick="옵션선택('S')">
+            실제적이고 현실적이다.
+          </div>
+          <div class="선택한옵션" onclick="옵션선택('N')">
+            창의적이고 비전을 갖는다.
+          </div>
+        </div>
+      </div>
+      <div id="문제3" class="다른문제">
+        <p>3. 변화에 대처할 때, 당신은 어떻게 행동하나요?</p>
+        <div class="선택한옵션들">
+          <div class="선택한옵션" onclick="옵션선택('T')">
+            논리적이고 분석적이다.
+          </div>
+          <div class="선택한옵션" onclick="옵션선택('F')">
+            감정적이고 친화적이다.
+          </div>
+        </div>
+      </div>
+      <div id="문제4" class="다른문제">
+        <p>4. 계획을 세울 때, 당신은 주로 어떤 방식을 사용하나요?</p>
+        <div class="선택한옵션들">
+          <div class="선택한옵션" onclick="옵션선택('J')">
+            계획을 세우고 준비한다.
+          </div>
+          <div class="선택한옵션" onclick="옵션선택('P')">
+            융통성있게 대처한다.
+          </div>
+        </div>
+      </div>
+      <div id="문제5" class="다른문제">
+        <p>5. 스트레스 상황에서 당신은 보통 어떤 행동을 하나요?</p>
+        <div class="선택한옵션들">
+          <div class="선택한옵션" onclick="옵션선택('E')">
+            사람들과 소통한다.
+          </div>
+          <div class="선택한옵션" onclick="옵션선택('I')">
+            혼자서 시간을 보낸다.
+          </div>
+        </div>
+      </div>
+      <div id="문제6" class="다른문제">
+        <p>6. 새로운 환경에서 당신은 어떻게 적응하나요?</p>
+        <div class="선택한옵션들">
+          <div class="선택한옵션" onclick="옵션선택('E')">
+            적극적으로 새로운 사람들과 교류한다.
+          </div>
+          <div class="선택한옵션" onclick="옵션선택('I')">
+            혼자서 천천히 적응한다.
+          </div>
+        </div>
+      </div>
+      <div id="문제7" class="다른문제">
+        <p>7. 의사 결정을 할 때, 당신은 어떤 방식을 선호하나요?</p>
+        <div class="선택한옵션들">
+          <div class="선택한옵션" onclick="옵션선택('T')">
+            논리와 이성을 기반으로 결정한다.
+          </div>
+          <div class="선택한옵션" onclick="옵션선택('F')">
+            감정과 사람들을 고려하여 결정한다.
+          </div>
+        </div>
+      </div>
+      <div id="문제8" class="다른문제">
+        <p>8. 일정을 계획할 때, 당신은 어떤 방식을 사용하나요?</p>
+        <div class="선택한옵션들">
+          <div class="선택한옵션" onclick="옵션선택('J')">
+            철저하게 계획하고 일정을 맞춘다.
+          </div>
+          <div class="선택한옵션" onclick="옵션선택('P')">
+            상활에 따라 유연하게 대처한다.
+          </div>
+        </div>
+      </div>
+
+      <div id="결과확인"></div>
+
+      <script>
+        let 정답 = {};
+
+        function 옵션선택(옵션) {
+          let 현재질문 = Object.keys(정답).length + 1;
+          정답["문제" + 현재질문] = 옵션;
+
+          let 다음질문 = 현재질문 + 1;
+
+          let 현재질문div = document.getElementById("문제" + 현재질문);
+          let 다음질문div = document.getElementById("문제" + 다음질문);
+
+          if (다음질문div) {
+            현재질문div.style.display = "none";
+            다음질문div.style.display = "block";
+          } else {
+            현재질문div.style.display = "none";
+            결과확인하기();
+          }
+        }
+        function 결과확인하기() {
+          let 결과확인 = "당신의 성격 유형은 ";
+          let MBTI개수확인 = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
+
+          for (let 문제 in 정답) {
+            MBTI개수확인[정답[문제]]++;
+          }
+          if (MBTI개수확인["E"] > MBTI개수확인["I"]) {
+            결과확인 += "E";
+          } else {
+            결과확인 += "I";
+          }
+          if (MBTI개수확인["S"] > MBTI개수확인["N"]) {
+            결과확인 += "S";
+          } else {
+            결과확인 += "N";
+          }
+          if (MBTI개수확인["T"] > MBTI개수확인["F"]) {
+            결과확인 += "T";
+          } else {
+            결과확인 += "F";
+          }
+          if (MBTI개수확인["J"] > MBTI개수확인["P"]) {
+            결과확인 += "J";
+          } else {
+            결과확인 += "P";
+          }
+
+          document.getElementById("결과확인").innerText = 결과확인;
+          document.getElementById("결과확인").style.display = 'block';
+        }
+      </script>
+    </div>
+  </body>
+</html>
