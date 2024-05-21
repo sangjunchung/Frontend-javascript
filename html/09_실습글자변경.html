@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>텍스트 변경</title>
+  </head>
+
+  <body>
+    <p id="welcome">클릭해서 환영인사로 변경하세요.</p>
+    <button onclick="변경()">Click me</button>
+    <script>
+        function 변경(){
+            let textNow = document.getElementById("welcome");
+
+            if(textNow.innerText != "Hello, World!"){
+                textNow.innerText = "Hello, World!";
+            } else {
+                textNow.innerText = "클릭해서 환영인사로 변경하세요.";
+            }
+        }
+    </script>
+  </body>
+</html>
