@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>메뉴선택</title>
+    <style>
+      body {
+        background-color: #ccc;
+      }
+      .header {
+        text-align: center;
+      }
+      .mainmenu {
+        background-color: white;
+        width: 30%;
+        display: block;
+        margin: 20px auto;
+        border-radius: 3px;
+        box-shadow: 0 0 10px #8f8e8e;
+        padding: 5px;
+      }
+      .mainmenu h3 {
+        margin-left: 10px;
+      }
+      .menukind {
+        background-color: #ccc;
+        margin: 5px 10px;
+        height: 30px;
+        padding: 0 5px;
+        line-height: 30px;
+        cursor: pointer;
+      }
+      .menukind:hover {
+        background-color: black;
+        color: white;
+      }
+      ul {
+        padding: 0;
+      }
+      li {
+        list-style-type: none;
+        background-color: white;
+        margin: 5px 0px;
+        height: 30px;
+        padding: 0 5px;
+        line-height: 30px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>점심 메뉴 고르기</h1>
+      </div>
+      <div class="mainmenu">
+        <h3>메뉴리스트</h3>
+        <div class="menukind" onclick="showSubMenu('중식')">중식</div>
+        <div class="menukind" onclick="showSubMenu('한식')">한식</div>
+        <div class="menukind" onclick="showSubMenu('일식')">일식</div>
+      </div>
+
+      <div id="submenu">
+        <h2 id="submenu-title"></h2>
+        <ul id="submenu-list" class="submenuKind"></ul>
+      </div>
+    </div>
+    <script>
+      function showSubMenu(menu) {
+        const submenu = document.getElementById("submenu");
+        const submenuTitle = document.getElementById("submenu-title");
+        const submenuList = document.getElementById("submenu-list");
+
+        submenuTitle.textContent = menu + " 메뉴";
+        submenuList.innerHTML = ""; // 이전에 보여준 메뉴들 모두 없애고 새로보이기
+
+        // 선택한 메뉴에 따라 세부 메뉴 표시하기
+        switch (menu) {
+          case "중식":
+            submenuList.innerHTML =
+              "<li>짜장면</li><li>짬뽕</li><li>탕수육</li>";
+            break;
+          case "한식":
+            submenuList.innerHTML =
+              "<li>비빔밥</li><li>된장찌개</li><li>불고기</li>";
+            break;
+          case "일식":
+            submenuList.innerHTML = "<li>초밥</li><li>라멘</li><li>돈까스</li>";
+            break;
+          default:
+            break;
+        }
+        submenu.classList.remove("hidden");
+      }
+    </script>
+  </body>
+</html>
