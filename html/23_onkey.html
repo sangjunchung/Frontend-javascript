@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>이벤트 리스너 사용하기</title>
+  </head>
+
+  <body>
+    <h1>KH 항공 가입하기</h1>
+    이름(영문) : <input type="text" id="영문이름" onkeyup="기능만들기()" />
+    <script>
+      function 기능만들기() {
+        const 기능 = document.getElementById("영문이름");
+        기능.value = 기능.value.toLowerCase(); // 영어 소문자
+        기능.value = 기능.value.toUpperCase(); // 영어 대문자
+      }
+    </script>
+  </body>
+</html>
