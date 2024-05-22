@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>채팅 프로그램</title>
+    <style>
+      #chat-container {
+        width: 300px;
+        height: 400px;
+        border: 2px solid #ccc;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+      #chat-box {
+        flex: 1;
+        padding: 10px;
+        border-bottom: 2px solid #ccc;
+        /* overflow-y - 내용이 넘칠 때 어떻게 보이는지 선택하는 속성 */
+        overflow-y: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>챗봇 상담하기</h1>
+    <div id="chat-container">
+      <div id="chat-box"></div>
+      <div id="input-box">
+        <input type="text" id="inMsg" placeholder="..." />
+        <button onclick="sendMsg()">send</button>
+      </div>
+    </div>
+
+    <script>
+      function sendMsg() {
+        const inputMsg = document.getElementById("inMsg");
+        const toMsg = inputMsg.value.trim();
+        inputMsg = "";
+
+        if (toMsg != "") {
+          showMsg(toMsg, "user");
+
+          setTimeout(() => {
+            showMsg("go back", "bot");
+          }, 1000);
+        }
+      }
+      function showMsg(message, send) {
+        const chatbox = document.getElementById("chat-box");
+        const newMsg = document.createElement("div");
+
+        newMsg.classList.add("message", send+"-message");
+        newMsg.textContent = message;
+
+        chatbox.appendChild(newMsg);
+      }
+    </script>
+  </body>
+</html>
