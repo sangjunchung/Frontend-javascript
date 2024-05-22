@@ -3,18 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <title>이벤트 리스너 사용하기</title>
+    <script src="../js/23_onkey-onpress.js"></script>
   </head>
 
   <body>
     <h1>KH 항공 가입하기</h1>
     이름(영문) : <input type="text" id="영문이름" onkeyup="기능만들기()" />
-    <script>
-      function 기능만들기() {
-        const 기능 = document.getElementById("영문이름");
-        기능.value = 기능.value.toLowerCase(); // 영어 소문자
-        기능.value = 기능.value.toUpperCase(); // 영어 대문자
-      }
-    </script>
 
     <h1>onkeypress - enter 키</h1>
     <p>
@@ -22,10 +16,5 @@
       않아도 클릭한 것처럼 작동
     </p>
     <input type="text" onkeypress="엔터기능()" />
-    <script>
-      function 엔터기능() {
-        alert("입력한 내용이 전달되었습니다.");
-      }
-    </script>
   </body>
 </html>
