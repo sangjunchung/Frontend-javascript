@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>회원가입에 토글이?!</title>
+    <style>
+      textarea {
+        resize: none;
+        outline: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>회원가입</h1>
+    이름 : <input type="text" id="user_name" required />
+    <br />
+    이메일 : <input type="email" id="user_email" required />
+    <br />
+    비밀번호 : <input type="password" id="user_pw" required />
+    <br />
+    비밀번호 확인 : <input type="password" id="user_pw_confirm" required />
+    <button type="button" onclick="확인()">비밀번호 확인</button>
+    <br /><br />
+    이용약관
+    <button type="button" id="onoff" onclick="접기펼치기()">접기</button><br />
+    <textarea id="이용약관" rows="3" cols="20" readonly>
+ 이 이용약관은 약 300년 전 영국에서부터 시작된 이용약관으로,
+ 이용약관을 읽은 후 확인을 누르지 않으면....
+    </textarea>
+    <br /><br />
+    <button type="button" onclick="회원가입()">회원가입</button>
+
+    <script>
+      let memCount = 1;
+
+      function 확인() {
+        const pw1 = document.getElementById("user_pw");
+        const pw2 = document.getElementById("user_pw_confirm");
+
+        if (pw1.value == pw2.value) {
+          alert("비밀번호가 일치합니다.");
+        } else {
+          alert("비밀번호가 일치하지 않습니다.");
+        }
+      }
+      function 접기펼치기() {
+        const 버튼 = document.getElementById("onoff");
+        const 내용 = document.getElementById("이용약관");
+
+        if (버튼.innerText == "접기") {
+          내용.style.display = "none";
+          버튼.innerText = "펼치기";
+        } else {
+          내용.style.display = "block";
+          버튼.innerText = "접기";
+        }
+      }
+      function 회원가입() {
+        let memberList = {};
+
+        const memName = document.getElementById("user_name");
+        const memEamil = document.getElementById("user_email");
+        const memPw = document.getElementById("user_pw");
+        const newMember = {
+          이름: memName.value,
+          이메일: memEamil.value,
+          비번: memPw.value,
+        };
+
+        if (memCount == 1) {
+          memberList.memCount = newMember;
+          memCount++;
+        } else {
+          for (let mem in memberList) {
+            if (JSON.stringify(mem) === JSON.stringify(newMember)) {
+              alert("이미 가입된 회원입니다.");
+              break;
+            } else {
+              memberList.memCount = newMember;
+              memCount++;
+            }
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
