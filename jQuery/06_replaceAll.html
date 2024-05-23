@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>replaceAll 예제</title>
+    <script src="jquery3.7.1.js"></script>
+    <script>
+      function textChangeBtn(){
+          const originText = $("#원조텍스트").text();
+          
+          const Pattern = /Hello/g; // /문자열/g : 문자열에 해당하는 모든 글자 찾기
+          const newPattern = "Hi";
+          
+          // change 에 Hello 를 Hi 로 교체
+          const change = originText.replace(Pattern, newPattern);
+          // 교체한 change 를 p 에 값 넣음
+          $("#원조텍스트").text(change);
+      }
+      function textChangeBtn2(){
+        const findText = /Hi/g;
+        const newPattern = "Hello";
+
+        const changeText = $("#원조텍스트").text().replace(findText, newPattern);
+        $("#원조텍스트").text(changeText);
+      }
+    </script>
+  </head>
+
+  <body>
+    <p id="원조텍스트">Hello, World! Hello, Javascript! Hello, Lunch!</p>
+    <button id="btn" onclick="textChangeBtn()">Change Hello</button>
+    <button id="btn" onclick="textChangeBtn2()">Change Hi</button>
+  </body>
+</html>

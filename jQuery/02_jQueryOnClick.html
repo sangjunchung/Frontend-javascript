@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>jQuery onClick</title>
+    <script
+      type="text/javascript"
+      src="http://code.jquery.com/jquery-3.7.1.js"
+    ></script>
+    <script>
+        function changeBackground(){
+            $("#인사하기").css("background-color", "blue");
+        }
+        function changeText(){
+            $("#인사하기").css("color", "lightgreen")
+        }
+        function resetColor(){
+            $("#인사하기").css("background-color", "white")
+            $("#인사하기").css("color", "black")
+        }
+    </script>
+    <style>
+        #인사하기 {
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+  </head>
+
+  <body>
+    <div id="인사하기">
+        안녕하세요.
+    </div>
+    <button onclick="changeBackground()">배경색 변경</button>
+    <button onclick="changeText()">글자색 변경</button>
+    <button onclick="resetColor()">초기화</button>
+  </body>
+</html>
