@@ -13,7 +13,7 @@
                 $("li").each(function(){
                     var liValue = $(this).text();
 
-                    if(liValue.indexOf(searchbox) === -1){
+                    if(liValue.toUpperCase().indexOf(searchbox.toUpperCase()) === -1){
                         $(this).hide();
                     } else {
                         $(this).show();
