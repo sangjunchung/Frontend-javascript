@@ -7,9 +7,11 @@
     <script>
       $(document).ready(function () {
         $("#searchbox").keyup(function () {
+          var searchbox = $(this).val();
           var checkResult = false;
           $("li").each(function () {
-            if ($(this).text().indexOf($("#searchbox").val()) === -1) {
+            var item = $(this).text();
+            if (item.indexOf(searchbox) === -1) {
               $(this).hide();
             } else {
               $(this).show();
@@ -26,41 +28,41 @@
       });
     </script>
     <style>
-        .container {
-            width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px #ccc;
-        }
-        #searchbox {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0px;
-            margin: 0px;
-        }
-        li {
-            padding: 15px;
-            border-bottom: 1px solid #ccc;
-            background-color: white;
-        }
-        body {
-            background-color: aliceblue;
-        }
-        h1 {
-            text-align: center;
-        }
-        #searchResult {
-            display: none;
-        }
+      .container {
+        width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #ccc;
+      }
+      #searchbox {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0px;
+        margin: 0px;
+      }
+      li {
+        padding: 15px;
+        border-bottom: 1px solid #ccc;
+        background-color: white;
+      }
+      body {
+        background-color: aliceblue;
+      }
+      h1 {
+        text-align: center;
+      }
+      #searchResult {
+        display: none;
+      }
     </style>
   </head>
 
