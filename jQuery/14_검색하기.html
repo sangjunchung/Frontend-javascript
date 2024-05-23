@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>검색하기</title>
+    <script src="jquery3.7.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#searchbox").keyup(function(){
+                const 검색박스 = $(this).val();
+
+                $("li").each(function(){ // for -each 처럼 반복문
+                    var 텍스트 = $(this).text();
+                    // indexOf 는 배열에서 특정 태그의 자리값을 찾는데 사용
+                    // index 0부터 시작, -1 은 없는 값임
+                    if(텍스트.indexOf(검색박스) === -1){ 
+                        $(this).hide();
+                    } else {
+                        $(this).show();
+                    }
+                });
+            });
+        });
+    </script>
+    <style>
+        .container {
+            width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+        #searchbox {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0px;
+            margin: 0px;
+        }
+        li {
+            padding: 15px;
+            border-bottom: 1px solid #ccc;
+            background-color: white;
+        }
+        body {
+            background-color: aliceblue;
+        }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <input type="text" id="searchbox" placeholder="메뉴를 검색하세요" />
+      <ul id="menuList">
+        <li>햄버거</li>
+        <li>피자</li>
+        <li>파스타</li>
+        <li>샐러드</li>
+        <li>샌드위치</li>
+        <li>스프</li>
+      </ul>
+    </div>
+  </body>
+</html>

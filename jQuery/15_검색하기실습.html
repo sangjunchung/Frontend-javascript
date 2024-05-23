@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>옷 검색하기</title>
+    <script src="jquery3.7.1.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#searchbox").keyup(function () {
+          var checkResult = false;
+          $("li").each(function () {
+            if ($(this).text().indexOf($("#searchbox").val()) === -1) {
+              $(this).hide();
+            } else {
+              $(this).show();
+              checkResult = true;
+            }
+          });
+
+          if (checkResult) {
+            $("#searchResult").hide();
+          } else {
+            $("#searchResult").show();
+          }
+        });
+      });
+    </script>
+    <style>
+        .container {
+            width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+        #searchbox {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0px;
+            margin: 0px;
+        }
+        li {
+            padding: 15px;
+            border-bottom: 1px solid #ccc;
+            background-color: white;
+        }
+        body {
+            background-color: aliceblue;
+        }
+        h1 {
+            text-align: center;
+        }
+        #searchResult {
+            display: none;
+        }
+    </style>
+  </head>
+
+  <body>
+    <h1>KH 옷가게</h1>
+    <div class="container">
+      <input type="text" id="searchbox" placeholder="찾는 옷 검색하기" />
+      <ul id="clothList">
+        <li>청바지</li>
+        <li>셔츠</li>
+        <li>니트</li>
+        <li>슬렉스</li>
+        <li>하와이안슬렉스</li>
+        <li>반바지</li>
+        <li>7부반바지</li>
+        <li>긴팔니트</li>
+        <li>점프수트</li>
+        <li>원피스</li>
+      </ul>
+      <p id="searchResult">검색 결과가 없습니다.</p>
+    </div>
+  </body>
+</html>
