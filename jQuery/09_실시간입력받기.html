@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>실시간 입력 받기</title>
+    <script src="jquery3.7.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#inputField").on("input", function(){
+                $("#showText").text($(this).val());
+            })
+        })
+    </script>
+  </head>
+
+  <body>
+    <input type="text" id="inputField" placeholder="텍스트를 입력하세요.">
+    <p>입력한 텍스트 : <span id="showText"></span></p>
+  </body>
+</html>

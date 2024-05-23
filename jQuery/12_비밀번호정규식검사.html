@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>비밀번호 정규식 검사</title>
+    <script src="jquery3.7.1.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#pw").on("input", function () {
+          const regExp = /^[a-zA-Z0-9]{8,20}$/;
+
+          if (regExp.test($(this).val())) {
+            $("#regMsg").text("올바른 비밀번호입니다.").css("color", "green");
+          } else {
+            $("#regMsg")
+              .text("비밀번호가 양식에 맞지 않습니다. 8자~20자이어야합니다.")
+              .css("color", "red");
+          }
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <label>비밀번호 : </label>
+    <input type="password" id="pw" required />
+    <br />
+    <p id="regMsg"></p>
+  </body>
+</html>
