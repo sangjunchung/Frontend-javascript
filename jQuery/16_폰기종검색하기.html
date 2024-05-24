@@ -1,85 +1,111 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>폰 기종 검색하기</title>
     <script src="jquery3.7.1.js"></script>
     <script>
-        $(document).ready(function(){
-            $("#searchbox").keyup(function(){
-                var searchbox = $(this).val();
-                var showFail = false;
+      $(document).ready(function () {
+        $("#searchbox").keyup(function () {
+          var searchbox = $(this).val();
+          var showFail = false;
 
-                $("li").each(function(){
-                    var liValue = $(this).text();
+          $("li").each(function () {
+            var liValue = $(this).text();
 
-                    if(liValue.toUpperCase().indexOf(searchbox.toUpperCase()) === -1){
-                        $(this).hide();
-                    } else {
-                        $(this).show();
-                        showFail = true;
-                    }
-                })
+            if (liValue.toUpperCase().indexOf(searchbox.toUpperCase()) === -1) {
+              $(this).hide();
+            } else {
+              $(this).show();
+              showFail = true;
+            }
+          });
 
-                if(showFail){
-                    $("#searchFail").hide();
-                } else {
-                    $("#searchFail").show();
-                }
-            })
-        })
+          if (showFail) {
+            $("#searchFail").hide();
+          } else {
+            $("#searchFail").show();
+          }
+        });
+      });
+
+      function phone(pk) {
+        switch (pk) {
+          case "s21":
+            window.open(
+              "https://www.samsung.com/us/smartphones/galaxy-s-series/certified-re-newed-store/buy/galaxy-s21-5g-256gb-certified-renewed-unlocked-sm5g991uzaaxaa/?modelCode=SM5G991UZAAXAA"
+            );
+            break;
+          case "xm":
+            window.open(
+              "https://namu.wiki/w/Mi%2011%20%EC%8B%9C%EB%A6%AC%EC%A6%88"
+            );
+            break;
+          case "lg":
+            window.open("https://www.lge.co.kr/smartphones/lm-g910n(lte)");
+            break;
+        }
+      }
     </script>
     <style>
-        .container {
-          width: 600px;
-          margin: 20px auto;
-          padding: 20px;
-          background-color: white;
-          border-radius: 10px;
-          box-shadow: 0 0 10px #ccc;
-        }
-        #searchbox {
-          width: 90%;
-          padding: 10px;
-          font-size: 16px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-          display: block;
-          outline: none;
-          margin: 0 auto;
-          margin-bottom: 20px;
-        }
-        ul {
-          list-style-type: none;
-          padding: 0px;
-          margin: 0px;
-        }
-        li {
-          padding: 15px;
-          border-bottom: 1px solid #ccc;
-          background-color: white;
-        }
-        body {
-          background-color: aliceblue;
-        }
-        #searchFail {
-            display: none;
-        }
-      </style>
-</head>
-<!--갤럭시S21, 아이폰12,구글픽셀5,원플러스9,xiaomi mi11,lg velvet-->
-<body>
+      .container {
+        width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #ccc;
+      }
+      #searchbox {
+        width: 90%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        display: block;
+        outline: none;
+        margin: 0 auto;
+        margin-bottom: 20px;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0px;
+        margin: 0px;
+      }
+      li {
+        padding: 15px;
+        border-bottom: 1px solid #ccc;
+        background-color: white;
+        cursor: pointer;
+      }
+      li:hover {
+        background-color: #ccc;
+      }
+      li a {
+        color: black;
+        text-decoration: none;
+      }
+      body {
+        background-color: aliceblue;
+      }
+      #searchFail {
+        display: none;
+      }
+    </style>
+  </head>
+  <!--갤럭시S21, 아이폰12,구글픽셀5,원플러스9,xiaomi mi11,lg velvet-->
+  <body>
     <div class="container">
-        <input type="text" id="searchbox" placeholder="핸드폰을 검색해주세요" />
-        <ul id="phoneList">
-            <li>Galaxy S21</li>
-            <li>iPhone 12</li>
-            <li>Google Pixel 5</li>
-            <li>OnePlus9</li>
-            <li>Xiaomi Mi11</li>
-            <li>LG Velvet</li>
-        </ul>
-        <p id="searchFail">검색 결과가 없습니다.</p>
+      <input type="text" id="searchbox" placeholder="핸드폰을 검색해주세요" />
+      <ul id="phoneList">
+        <li onclick="phone('s21')">Galaxy S21</li>
+        <li>iPhone 12</li>
+        <li>Google Pixel 5</li>
+        <li>OnePlus9</li>
+        <li onclick="phone('xm')">Xiaomi Mi11</li>
+        <li onclick="phone('lg')">LG Velvet</li>
+      </ul>
+      <p id="searchFail">검색 결과가 없습니다.</p>
     </div>
-</body>
+  </body>
 </html>
