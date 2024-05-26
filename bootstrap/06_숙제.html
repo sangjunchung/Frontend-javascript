@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>옷 판매 사이트</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <style>
+      .footer {
+        background-color: rgb(33, 37, 41);
+        color: white;
+        padding: 1rem 0; /* 16px */
+        position: relative;
+        width: 100%;
+        bottom: 0;
+      }
+      .footer a {
+        color: white;
+        text-decoration: none;
+      }
+      .footer a:hover {
+        text-decoration: underline;
+        color: blue;
+      }
+      .container {
+        width: 50%;
+      }
+      .count {
+        display: inline;
+        background-color: gray;
+        width: 100px;
+        border-radius: 5px;
+      }
+      .btn {
+        border: none;
+      }
+      .btn:hover {
+        color: black;
+        background-color: white;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+      <a class="navbar-brand" href="#">옷 판매 사이트</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link text-light" href="02_홈페이지.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Shop</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              Cart
+              <div class="count">
+                &nbsp;
+                <div class="count text-light" id="countCart">0</div>
+                &nbsp;
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container mt-5 mb-5">
+      <h3>상품 목록</h3>
+      <div class="row mt-4">
+        <div class="col-4">
+          <div class="card">
+            <img src="../이미지들/상의.png" />
+            <div class="card-body">
+              <h5>상품명 1</h5>
+              <h6>\30,000</h6>
+              <a class="btn btn-dark" href="#">상세보기</a>
+              <button
+                class="btn btn-success"
+                id="addItem0"
+                onclick="addCart(0)"
+              >
+                장바구니에 추가
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card">
+            <img src="../이미지들/여름상의.png" />
+            <div class="card-body">
+              <h5>상품명 1</h5>
+              <h6>\30,000</h6>
+              <a class="btn btn-dark" href="#">상세보기</a>
+              <button
+                class="btn btn-success"
+                id="addItem1"
+                onclick="addCart(1)"
+              >
+                장바구니에 추가
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card">
+            <img src="../이미지들/상의.png" />
+            <div class="card-body">
+              <h5>상품명 1</h5>
+              <h6>\30,000</h6>
+              <a class="btn btn-dark" href="#">상세보기</a>
+              <button
+                class="btn btn-success"
+                id="addItem2"
+                onclick="addCart(2)"
+              >
+                장바구니에 추가
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <div class="card">
+            <img src="../이미지들/바지.png" />
+            <div class="card-body">
+              <h5>상품명 1</h5>
+              <h6>\30,000</h6>
+              <a class="btn btn-dark" href="06_숙제바지.html">상세보기</a>
+              <button
+                class="btn btn-success"
+                id="addItem3"
+                onclick="addCart(3)"
+              >
+                장바구니에 추가
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card">
+            <img src="../이미지들/긴바지.png" />
+            <div class="card-body">
+              <h5>상품명 1</h5>
+              <h6>\30,000</h6>
+              <a class="btn btn-dark" href="#">상세보기</a>
+              <button
+                class="btn btn-success"
+                id="addItem4"
+                onclick="addCart(4)"
+              >
+                장바구니에 추가
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card">
+            <img src="../이미지들/바지.png" />
+            <div class="card-body">
+              <h5>상품명 1</h5>
+              <h6>\30,000</h6>
+              <a class="btn btn-dark" href="06_숙제바지.html">상세보기</a>
+              <button
+                class="btn btn-success"
+                id="addItem5"
+                onclick="addCart(5)"
+              >
+                장바구니에 추가
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer mt-5">
+      <div class="container text-center">
+        <p>&copy; 2024 브랜드명. All Rights Reserved.</p>
+        <p><a href="#">개인 정보 처리 방침</a> | <a href="#">이용약관</a></p>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function addCart(num) {
+        const removeCart = document.getElementById("addItem" + num);
+        const countCart = document.getElementById("countCart");
+
+        if (removeCart.innerText === "장바구니에 추가") {
+          removeCart.innerText = "장바구니에서 제거";
+          removeCart.style.background = "red";
+          countCart.innerHTML = parseInt(countCart.textContent) + 1;
+        } else {
+          removeCart.innerText = "장바구니에 추가";
+          removeCart.style.background = "#198754";
+          countCart.innerHTML = parseInt(countCart.textContent) - 1;
+        }
+      }
+    </script>
+  </body>
+</html>
