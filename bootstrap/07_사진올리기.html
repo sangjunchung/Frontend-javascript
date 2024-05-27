@@ -49,14 +49,23 @@
           const file = this.files[0]; // showImg 태그에 첫번째로 올린 이미지 출력
 
           if (file) {
+            // 가져온 파일을 읽기위해 JS에 있는 FileReader 기능 가져오기
             const readFile = new FileReader();
+            // onload -> FileReader 로 원하는 파일이 읽혔을 때 기능 실행
+            // 만약에 파일 읽기가 안되면 onload 기능 자체가 실행되지 않음
             readFile.onload = function (e) {
-              $("showImg").attr("src", e.target.result).removeClass("d-none");
+              // #showImg -> id 이름이 showImg 인 태그를 선택
+              // attr = attribute 속성, 설정
+              // src(이미지 주소) 설정
+              // e.target.result -> 파일이 성공적으로 읽힌 다음 url 주소값 가져오기
+              // removeClass -> 위에서 설정한 d-none 삭제
+              $("#showImg").attr("src", e.target.result).removeClass('d-none');
             };
-
+            // 이미지 파일을 읽어와서 사람들이 볼 수 있는 값으로 설정한 다음 보여주는것
             readFile.readAsDataURL(file);
           } else {
-            $("#showImg").addClass("d-none");
+            // 만약에 선택한 이미지가 없으면 다시 엑스박스로 된 이미지 숨기기
+            $("#showImg").addClass('d-none');
           }
         });
       });
