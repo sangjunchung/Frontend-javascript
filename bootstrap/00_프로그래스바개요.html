@@ -45,32 +45,32 @@
           0%
         </div>
       </div>
-      <button id="startBtn" class="btn btn-primary" onclick="click()">
+      <button id="startBtn" class="btn btn-primary" onclick="startclick()">
         클릭하기
       </button>
     </div>
   </body>
   <script>
-    function click() {
-        const progressbar = $("#progressbar"); // 프로그래스바 표시할 div 가져오기
-        let runningRate = 0;
+    function startclick() {
+      const progressbar = $("#progressbar"); // 프로그래스바 표시할 div 가져오기
+      let runningRate = 0;
 
-        // setInterval : 일정 시간 간격으로 지정된 작업을 반복적으로 실행하는 js 전용 함수
-        //               타이머나, 애니메이션이나 주기적인 데이터 갱신을 할 때 사용
-        // setInterval(function(){ 작동할 기능 작성}, 몇 초마다 진행할 것인지 초 설정)
+      // setInterval : 일정 시간 간격으로 지정된 작업을 반복적으로 실행하는 js 전용 함수
+      //               타이머나, 애니메이션이나 주기적인 데이터 갱신을 할 때 사용
+      // setInterval(function(){ 작동할 기능 작성}, 몇 초마다 진행할 것인지 초 설정)
 
-        const running = setInterval(function(){
-            // 만약에 100%가 되거나 100% 이상이면 초기화
-            if(runningRate >= 100){
-                clearInterval(running);
-            } else {
-                // 100% 미만 이라면 계속 1%씩 진행률 늘려주기
-                runningRate++;
-                progressbar.css('width', runningRate+"%");
-                progressbar.attr('aria-valuenow', runningRate);
-                progressbar.text(runningRate+"%");
-            }
-        }, 100);
+      const running = setInterval(function () {
+        // 만약에 100%가 되거나 100% 이상이면 초기화
+        if (runningRate >= 100) {
+          clearInterval(running);
+        } else {
+          // 100% 미만 이라면 계속 1%씩 진행률 늘려주기
+          runningRate++;
+          progressbar.css("width", runningRate + "%");
+          progressbar.attr("aria-valuenow", runningRate);
+          progressbar.text(runningRate + "%");
+        }
+      }, 100);
     }
   </script>
 
