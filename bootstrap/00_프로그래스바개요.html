@@ -66,9 +66,9 @@
         } else {
           // 100% 미만 이라면 계속 1%씩 진행률 늘려주기
           runningRate++;
-          progressbar.css("width", runningRate + "%");
-          progressbar.attr("aria-valuenow", runningRate);
-          progressbar.text(runningRate + "%");
+          progressbar.css("width", runningRate + "%"); // style 가로가 변경
+          progressbar.attr("aria-valuenow", runningRate); // 속성 값 중에서 now만 변경
+          progressbar.text(runningRate + "%"); // text 변경된 글자를 보기 위해 text 변경
         }
       }, 100);
     }
