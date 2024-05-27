@@ -51,8 +51,7 @@
       $(document).ready(function () {
         $("#selectImg").change(function () {
           const files = this.files;
-          const num = $("img").last().attr("id");
-          console.log(num);
+          const num = $("img").last().attr("id").replace(/[a-zA-z]/g, "");
           /*
           if (files) {
             const readFile = new FileReader();
@@ -70,7 +69,7 @@
             readFile2.readAsDataURL(files[1]);
           }*/
           if (files) {
-            for (let i = 0; i < files.length; i++) {
+            for (let i = 0; i < num; i++) {
               let readFile = new FileReader();
 
               readFile.onload = function (e) {
