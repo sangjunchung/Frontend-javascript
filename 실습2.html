@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>실습2</title>
+    <script src="jQuery/jquery3.7.1.js"></script>
+    <style>
+      .container {
+        background-color: #e2e1e1;
+        border: 1px solid #c0bfbf;
+        width: 450px;
+      }
+      input {
+        width: 300px;
+        box-sizing: border-box;
+        background-color: #e2e1e1;
+        border: none;
+        outline: none;
+        border-bottom: 1px dashed black;
+        line-height: 20px;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      table {
+        margin: 50px auto 20px;
+      }
+      button {
+        border: none;
+        border-radius: 1px;
+        background-color: lightgreen;
+        color: rgb(37, 128, 37);
+        width: 90%;
+        margin: 10px;
+        padding: 10px;
+      }
+      td {
+        font-weight: bold;
+        padding: 10px;
+      }
+      small {
+        color: #a0a0a0;
+      }
+      .dNone {
+        display: none;
+      }
+      .emailLeng {
+        width: 135px;
+      }
+      .smallTd {
+        padding-top: 0px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <form>
+        <table>
+          <tr>
+            <td>아이디</td>
+            <td>
+              <input type="text" required />
+            </td>
+          </tr>
+          <tr>
+            <td>패스워드</td>
+            <td>
+              <input id="pw1" type="password" required onclick="onPw()" />
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td class="smallTd">
+              <small id="pwGuide" class="dNone"
+                >영문자 대/소문자 특수문자, 숫자 포함 8 ~ 32자</small
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>패스워드 확인</td>
+            <td>
+              <input type="password" required />
+            </td>
+          </tr>
+          <tr>
+            <td>이메일</td>
+            <td>
+              <input class="emailLeng" type="email" />
+              @
+              <input class="emailLeng" type="email" />
+            </td>
+          </tr>
+          <tr>
+            <td>주소</td>
+            <td>
+              <input type="text" />
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <input type="text" />
+            </td>
+          </tr>
+        </table>
+        <button>가입</button>
+      </form>
+    </div>
+  </body>
+  <script>
+    function onPw() {
+      $("#pwGuide").removeClass("dNone");
+    }
+  </script>
+</html>
