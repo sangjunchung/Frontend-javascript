@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>버튼 클릭시 글자 변경하기</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  </head>
+
+  <body>
+    <h1 id="changeText">안녕하세요</h1>
+    <button type="button" onclick="change()">텍스트 변경</button>
+  </body>
+  <script>
+    function change(){
+        const text = $("#changeText");
+
+        if(text.text() === "안녕하세요"){
+            text.text("글자변경완료");
+        } else {
+            text.text("안녕하세요");
+        }
+    }
+  </script>
+</html>
