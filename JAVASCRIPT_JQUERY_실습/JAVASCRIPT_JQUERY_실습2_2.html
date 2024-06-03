@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>폼 입력 값 표시</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  </head>
+
+  <body>
+    <input type="text" id="user-input"/>
+    <button id="display-input">글자표시</button>
+    <br>
+    <div id="display-area"></div>
+  </body>
+
+  <script>
+    $(document).ready(function(){
+        $("#display-input").click(function(){
+            const text = $("#user-input").val();
+            $("#display-area").text(text);
+        });
+    });
+  </script>
+</html>

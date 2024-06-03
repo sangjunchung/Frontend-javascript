@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>리스트 아이템 추가 및 삭제</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  </head>
+
+  <body>
+    <ul id="item-list"></ul>
+    <button id="add-item">추가하기</button>
+    <button id="remove-item">삭제하기</button>
+  </body>
+  
+  <script>
+    $(document).ready(function(){
+        $("#add-item").click(function(){
+            const list = $("#item-list");
+            list.append("<li>추가</li>");
+        });
+
+        $("#remove-item").click(function(){
+            const last = $("li").last();
+            last.remove();
+        });
+    });
+  </script>
+</html>
